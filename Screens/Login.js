@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {OnPress, AppRegistry, Button, View, TextInput, StyleSheet, Image, Style, Text} from 'react-native';
+import {StackNavigator} from 'react-navigation'
 
-export default class Login extends Component{
+class Login extends Component{
   
   render() {
     return (
@@ -14,13 +15,13 @@ export default class Login extends Component{
       <Text style={styles.instructions}>Facebook</Text>
 
       <TextInput
-        style={{height: 50, borderColor: 'black', borderWidth: 1}}
+        style={{marginBottom: 5,height: 50, borderColor: 'black', borderWidth: 1}}
         placeholder='Username'
         onChangeText={(text) => this.setState({text})}
       />
 
       <TextInput
-        style={{height: 50, borderColor: 'black', borderWidth: 1}}
+        style={{marginBottom: 5,height: 50, borderColor: 'black', borderWidth: 1}}
         secureTextEntry
         onChangeText={(text) => this.setState({text})}
         placeholder='Password'
@@ -28,6 +29,7 @@ export default class Login extends Component{
 
       <Button 
         style ={{margin: 20,flexDirection: 'row',justifyContent: 'space-between'}}
+        onPress={() => this.props.navigation.navigate('Home')} title="Home"
         title="LOGIN"
         color="#BBBBBB"
       />
@@ -36,12 +38,15 @@ export default class Login extends Component{
     );
   }
 }
+
+export default Login;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#4BCFFA',
   },
   instructions: {
     fontSize: 15,
